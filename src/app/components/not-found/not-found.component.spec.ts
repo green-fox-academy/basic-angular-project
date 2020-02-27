@@ -10,14 +10,11 @@ describe('NotFoundComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ NotFoundComponent ]
     })
-    .compileComponents();
-  }));
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(NotFoundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }));
 
   afterEach(() => {
     if (fixture.nativeElement && 'remove' in fixture.nativeElement) {
@@ -37,6 +34,7 @@ describe('NotFoundComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('404');
   });
+
   it(`should have as message 'Not Found'`, () => {
     expect(component.message).toEqual('Not Found');
   });
