@@ -21,7 +21,7 @@ describe('HelloWorldComponent', () => {
       providers:    [
         { provide: ApiService, useValue: apiService }
       ]
-    })
+    });
 
     fixture = TestBed.createComponent(HelloWorldComponent);
     component = fixture.componentInstance;
