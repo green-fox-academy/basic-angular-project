@@ -17,7 +17,7 @@ pipeline {
         }
         stage ('unit testing') {
             steps {
-              sh 'yarn test'
+              sh 'yarn test --no-watch --no-progress --browsers=ChromeHeadlessCI'
             }
         }
         stage ('e2e testing') {
