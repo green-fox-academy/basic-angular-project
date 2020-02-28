@@ -4,9 +4,13 @@ pipeline {
           image 'node:alpine'
       }
     }
+    environment {
+        CHROME_BIN = '/usr/bin/chromium-browser'
+    }
     stages {
         stage ('install') {
             steps {
+              sh 'apk add chromium'
               sh 'yarn install'
             }
         }
