@@ -26,7 +26,7 @@ pipeline {
         }
         stage ('e2e testing') {
             steps {
-              sh 'yarn e2e'
+              sh 'yarn e2e --protractor-config=e2e/protractor-ci.conf.js'
             }
         }
     }
