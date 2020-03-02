@@ -1,16 +1,19 @@
 pipeline {
     agent {
       docker {
-          image 'node:alpine'
+          image 'node:13'
       }
     }
-    environment {
-        CHROME_BIN = '/usr/bin/chromium-browser'
-    }
     stages {
-        stage ('install') {
+        stage ('setup build environment') {
+          steps {
+            sh 'wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -q'
+            sh 'apt update'
+            sh 'apt install -qq ./google-chrome-stable_current_amd64.deb -y'
+          }
+        }
+        stage ('install dependencies') {
             steps {
-              sh 'apk add chromium'
               sh 'yarn install'
             }
         }
@@ -21,12 +24,12 @@ pipeline {
         }
         stage ('unit testing') {
             steps {
-              sh 'yarn test --no-watch --no-progress --browsers=ChromeHeadlessCI'
+              sh 'yarn test:ci'
             }
         }
         stage ('e2e testing') {
             steps {
-              sh 'yarn e2e --protractor-config=e2e/protractor-ci.conf.js'
+              sh 'yarn e2e:ci'
             }
         }
     }

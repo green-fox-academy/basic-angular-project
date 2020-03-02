@@ -6,8 +6,6 @@ config.capabilities = {
     args: [
       '--headless',
       '--no-sandbox',
-      '--disable-gpu',
-      '--window-size=800x600'
     ]
   }
 };
