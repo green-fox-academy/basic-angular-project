@@ -26,6 +26,19 @@ pipeline {
       steps {
         sh 'yarn test:ci'
       }
+      post {
+        always {
+          junit 'output/test-results/**/*.xml'
+          publishHTML target: [
+            allowMissing         : false,
+            alwaysLinkToLastBuild: false,
+            keepAll              : true,
+            reportDir            : 'output/coverage',
+            reportFiles          : 'index.html',
+            reportName           : 'Coverage report'
+          ]
+        }
+      }
     }
     stage ('e2e testing') {
       when { // time consuming, run only on pull requests
