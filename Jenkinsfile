@@ -6,12 +6,6 @@ pipeline {
   }
   stages {
     stage ('setup build environment') {
-      when { // time consuming, run only for pull requests
-        allOf {
-          environment name: 'CHANGE_ID', value: ''
-          branch 'master'
-        }
-      }
       steps {
         sh 'wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -q'
         sh 'apt update'
@@ -34,7 +28,7 @@ pipeline {
       }
     }
     stage ('e2e testing') {
-      when { // time consuming, run only for pull requests
+      when { // time consuming, run only on pull requests
         allOf {
           environment name: 'CHANGE_ID', value: ''
           branch 'master'
