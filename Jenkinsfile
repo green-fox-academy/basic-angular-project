@@ -1,7 +1,7 @@
 pipeline {
     agent {
       docker {
-          image 'node:13'
+          image 'node:13' // should be latest but jenkins doesn't pull changes
       }
     }
     stages {
