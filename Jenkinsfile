@@ -4,6 +4,11 @@ pipeline {
       image 'node:13' // should be latest but jenkins doesn't pull changes
     }
   }
+  environment {
+    AWS_CREDENTIALS = 'ikarasz-aws'
+    S3_BUCKET = 'basic-angular-project'
+    S3_REGION = 'eu-central-1'
+  }
   stages {
     stage ('setup build environment') {
       steps {
@@ -49,6 +54,21 @@ pipeline {
       }
       steps {
         sh 'yarn e2e:ci'
+      }
+    }
+    stage ('deploy') {
+      when {
+        branch 'master'
+      }
+      steps {
+        sh 'yarn build:prod'
+        withAWS(region: env.S3_REGION, credentials: env.AWS_CREDENTIALS) {
+            s3Upload(
+              file: 'dist/',
+              bucket: env.S3_BUCKET,
+              path: '',
+            )
+        }
       }
     }
   }
