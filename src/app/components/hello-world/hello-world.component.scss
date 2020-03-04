@@ -1,0 +1,11 @@
+@import '../../../variables';
+
+:host {
+  align-self: center;
+  margin: 0 auto;
+}
+
+h1 {
+  color: $primary-color;
+  font-size: 8rem;
+}

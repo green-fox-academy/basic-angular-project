@@ -1,0 +1,12 @@
+@import '../variables';
+
+:host {
+  background-color: $bg-color;
+  background-image: url('/assets/images/angular.png');
+  background-position: bottom 1rem right 1.5rem;
+  background-repeat: no-repeat;
+  background-size: 10rem;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}

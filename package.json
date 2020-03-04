@@ -8,7 +8,9 @@
     "build:prod": "ng build --prod",
     "test": "ng test",
     "test:ci": "ng test --no-watch --no-progress --browsers=ChromeHeadlessCI --code-coverage",
-    "lint": "ng lint",
+    "lint": "yarn lint:js && yarn lint:scss",
+    "lint:js": "ng lint",
+    "lint:scss": "stylelint 'src/**/*.scss'",
     "e2e": "ng e2e",
     "e2e:ci": "ng e2e --protractor-config=e2e/protractor-ci.conf.js"
   },
@@ -46,6 +48,8 @@
     "karma-junit-reporter": "^2.0.1",
     "protractor": "~5.4.0",
     "sass": "^1.26.0",
+    "stylelint": "^13.2.0",
+    "stylelint-config-sass-guidelines": "^7.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.7.5"
