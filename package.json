@@ -10,7 +10,7 @@
     "test:ci": "ng test --no-watch --no-progress --browsers=ChromeHeadlessCI --code-coverage",
     "lint": "yarn lint:js && yarn lint:scss",
     "lint:js": "ng lint",
-    "lint:scss": "stylelint src/**/*.scss",
+    "lint:scss": "stylelint 'src/**/*.scss'",
     "e2e": "ng e2e",
     "e2e:ci": "ng e2e --protractor-config=e2e/protractor-ci.conf.js"
   },

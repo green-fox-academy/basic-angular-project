@@ -1,6 +1,7 @@
+@import '../variables';
 
 :host {
-  background-color: #0e9aa7;
+  background-color: $bg-color;
   background-image: url('/assets/images/angular.png');
   background-position: bottom 1rem right 1.5rem;
   background-repeat: no-repeat;
