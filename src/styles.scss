@@ -1,3 +1,6 @@
+/* Fonts */
+@import 'assets/fonts/fonts-montserrat.css';
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -21,7 +24,8 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+  vertical-align: baseline;
+  font-family: Montserrat;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -61,4 +65,12 @@ textarea:focus,
 button:focus {
     outline: none;
     outline-width: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
 }
