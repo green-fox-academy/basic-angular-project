@@ -1,0 +1,7 @@
+{
+  "extends": "stylelint-config-sass-guidelines",
+  "rules": {
+    "number-leading-zero": null,
+    "selector-list-comma-newline-after": "always-multi-line"
+  }
+}
