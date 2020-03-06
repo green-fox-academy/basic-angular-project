@@ -9,14 +9,25 @@
 
 ## Project setup
 
-### CI
+### AWS
 
-After creating the new repository the Jenkinsfile has to be customized.
-3 environment variables must be set to make it work
+You will need an S3 bucket to deploy the app somewhere.
 
-- **AWS_CREDENTIALS**: credential id in jenkins
-- **S3_BUCKET**: the bucket name which has been created for the project
-- **S3_REGION**: the region where the bucket lives.
+### Jenkins
+
+1. After the repository has been created you will need to create a new
+   multibranch pipeline in Jenkins. You can either define it by your own or
+   simply make a copy of the template project's pipeline.
+   Do not forget to provide a readable display name.
+1. You will need to add webhooks to the repository on github, so it will notify
+   the jenkins if any change happens. You can get some hint in the template
+   repository's settings.
+1. Bucket name has to be set in the Jenkinsfile so it will know where to deploy
+   the application. The environment variables can be found at the top of the
+   file.
+   - **AWS_CREDENTIALS**: credential id in jenkins
+   - **S3_BUCKET**: the bucket name which has been created for the project
+   - **S3_REGION**: the region where the bucket lives.
 
 ### CLI
 
